@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -q '^on' ~/.claude/ping-active 2>/dev/null && powershell -NoProfile -File ~/.claude/hooks/notify.ps1 || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
