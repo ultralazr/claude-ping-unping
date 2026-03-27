@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "grep -q '^on' ~/.claude/ping-active 2>/dev/null && powershell -NoProfile -File ~/.claude/hooks/notify.ps1 || true",
+            "command": "grep -q '^on' ~/.claude/ping-active 2>/dev/null && bash ~/.claude/hooks/notify.sh || true",
             "timeout": 10
           }
         ]

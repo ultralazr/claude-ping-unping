@@ -17,9 +17,11 @@ Toggle random custom sound notifications on/off in Claude Code. Enable notificat
    cp -r skills/ping ~/.claude/skills/
    cp -r skills/unping ~/.claude/skills/
    ```
-3. **Copy the hook script:**
+3. **Copy the hook scripts:**
    ```bash
-   cp hooks/notify.ps1 ~/.claude/hooks/
+   cp hooks/notify.sh ~/.claude/hooks/
+   cp hooks/notify.ps1 ~/.claude/hooks/  # Windows fallback
+   chmod +x ~/.claude/hooks/notify.sh
    ```
 4. **Merge the hook into your settings:**
    - Open `~/.claude/settings.json`
@@ -27,8 +29,24 @@ Toggle random custom sound notifications on/off in Claude Code. Enable notificat
 
 5. **Add sound files:**
    - Create `~/.claude/sounds/` directory
-   - Add `.mp3` files (or other formats your OS supports)
+   - Add audio files: `.mp3`, `.wav`, `.ogg`, `.m4a`
    - Hook will pick a random file each time
+
+## System Requirements
+
+**macOS:** Uses `afplay` (built-in)
+
+**Linux:** Needs one of:
+- `paplay` (PulseAudio)
+- `aplay` (ALSA)
+- `mpg123` (fallback)
+
+Install on Ubuntu/Debian:
+```bash
+sudo apt-get install pulseaudio-utils  # for paplay
+```
+
+**Windows:** PowerShell with Media Player (built-in)
 
 ## Usage
 
@@ -37,10 +55,6 @@ Toggle random custom sound notifications on/off in Claude Code. Enable notificat
 /unping   # Disable — silence
 ```
 
-## Cross-Platform
-
-- **Windows**: Uses PowerShell Media Player (included script)
-- **Mac/Linux**: Edit `hooks/notify.ps1` or create a bash alternative
 
 ## Add Your Own Sounds
 
