@@ -4,6 +4,8 @@
 
 Toggle random custom sound notifications on/off in Claude Code. Enable notifications with `/ping` to hear a random sound from your sound library whenever Claude finishes a task and is waiting for your input. Disable with `/unping`.
 
+IMPORTANT: Works across all active sessions, but must be triggered from a session that was created after the new hook config.
+
 ## Features
 
 - `/ping` — Enable notifications
