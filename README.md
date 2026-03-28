@@ -55,6 +55,8 @@ sudo apt-get install pulseaudio-utils  # for paplay
 /unping   # Disable — silence
 ```
 
+The flag state is checked at the moment the hook fires, so `/unping` takes effect immediately across all sessions.
+
 
 ## Add Your Own Sounds
 
